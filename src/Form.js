@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-
-
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       category: '',
-      infoText: ''
+      infoText: '',
+      myArray : [],
     };
     
     this.handleChangeCategory = this.handleChangeCategory.bind(this);
@@ -23,7 +22,9 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    alert('a name was submitted: '+ this.state.category + this.state.infoText)
+    this.setState(previousState => ({
+      myArray: [...previousState.myArray, "Categori: " + this.state.category +" " + "Tekst: " + this.state.infoText]
+    }));
     event.preventDefault();
 
 }
@@ -50,36 +51,11 @@ class Form extends Component {
       <br/>
       <input className="btn btn-primary" type="submit" value="Submit" />
       </form>
+      {this.state.myArray}
 </div>
     );
   }
 }
-
-class Categories extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Post: [],
-      Vaktmester: [],
-      Renhold: [],
-      Utland: [],
-      Beskjed: []      
-    };
-    
-  }
-  render() {
-    return (
-      <div>
-      {this.state.Post.map(Post => <li key={Post.id}>
-      </li>
-      )}
-      </div>
-
-    );
-  }
-}
-
-
 
 
 export default Form;
