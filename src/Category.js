@@ -1,48 +1,32 @@
-import React, { Component } from 'react';
+const React = require('react');
 
-class Category extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      entries : [],
-    }
-  }
-  render() {
-    return (
-      {entries}
-
-    );
-  };
-
-renderentries(entries) {
-    if (entries.length > 0) {      
-        return entries.map((entry, index) => (
-            <entry key={index} entry={entry} />
+function renderArticles(articles) {
+    if (articles.length > 0) {      
+        return articles.map((article, index) => (
+            <Article key={index} article={article} />
         ));
     }
     else return [];
 }
 
- entry = ({entry}) => {
+const Article = ({article}) => {
     return ( 
-        <entry key={entry.id}>
-            <a href={entry.link}>{entry.title}</a>
-            <p>{entry.description}</p>
-        </entry>
+        <article key={article.id}>
+            <a href={article.link}>{article.title}</a>
+            <p>{article.description}</p>
+        </article>
     );
 };
 
- entries = React.createClass({
+const Articles = React.createClass({
     render() {
-        const entries = renderentries(this.props.entries);
+        const articles = renderArticles(this.props.articles);
 
         return (
             <section>
-                { entries }
+                { articles }
             </section>
         );
     }
 });
-}
 
-export default Category;

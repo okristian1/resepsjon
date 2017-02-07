@@ -23,7 +23,7 @@ class Form extends Component {
 
   handleSubmit(event) {
     this.setState(previousState => ({
-      myArray: [...previousState.myArray, "Categori: " + this.state.category +" " + "Tekst: " + this.state.infoText]
+      myArray: [...previousState.myArray, this.state.category, this.state.infoText, Date.now()]
     }));
     event.preventDefault();
 
