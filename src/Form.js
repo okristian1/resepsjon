@@ -51,7 +51,6 @@ class Form extends Component {
       <br/>
       <input className="btn btn-primary" type="submit" value="Submit" />
       </form>
-      {this.state.myArray}
 </div>
     );
   }

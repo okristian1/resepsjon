@@ -5,6 +5,9 @@ import './App.css';
 import Form from './Form';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className="App">
@@ -14,10 +17,19 @@ class App extends Component {
         </div>
         <br/><br/>
         <Form />
+        <Item />
+      {this.props.myArray}
       </div>
     );
   }
 }
+
+class Item extends Component {
+  render(){
+    return <div>{this.props.item}</div>;
+  }
+}
+
 
 
 
